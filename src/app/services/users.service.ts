@@ -16,7 +16,7 @@ export class UsersService {
   }
   
   getUser(user): Observable<any>{
-    return this._http.get(this.url + "?ticket=" + user.ticket + "&password=" + user.password);
+    return this._http.get(this.url + "?ticket=" + user.ticket + "&password=" + user.password, {withCredentials: true});
   }
 
   addUser(user): Observable<any>{

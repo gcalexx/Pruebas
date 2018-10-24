@@ -87,8 +87,8 @@ export class HomeComponent implements OnInit {
     console.log(this.login);
     this._usersService.getUser(this.login).subscribe(
       result => {
-        //console.log(result);
-        localStorage.setItem('token', result.token);
+        console.log(result);
+        //localStorage.setItem('token', result.token);
       },
       error => {
         console.log(<any>error);
@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit {
     //console.log(this.register);
     this._usersService.addUser(this.register).subscribe(
       result => {
-        //console.log(result);
+        console.log(result);
       },
       error => {
         console.log(<any>error);
