@@ -1,0 +1,113 @@
+<div class="container-fluid inicio">
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" id="cerrar">&times;</a>
+      <div class='nav'>
+            <h3>Iniciar Sesión</h3>
+            <form class='form-horizontal' name='iniciar' #iniciar='ngForm' (ngSubmit)="onSubmitLogin(iniciar)">
+                <div class='form-group icon'>
+                  <input type='text' class='' id='iboleta' name='iboleta' placeholder='Boleta' #ticket='ngModel' [(ngModel)]='login.ticket' required maxlength="10" minlength="10">
+                  <i class="fa fa-id-card fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class='form-group icon'>
+                  <input type='password' class='' id='ipassword' name='ipassword' placeholder='Contraseña' #password='ngModel' [(ngModel)]='login.password' required minlength="8" maxlength="16">
+                  <i class="fa fa-key fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class='form-group icon'>
+                  <input type='submit' class='btn btn-block' style='color: white;' id='iniciar' name='iniciar' value='Iniciar Sesión' [disabled]='!iniciar.form.valid'>
+                </div>
+            </form>
+            <h3>Registro</h3>
+            <form class='form-horizontal' name='registro' #registrar='ngForm' (ngSubmit)='onSubmitRegister(registrar)'>
+              <div class='form-group icon'>
+                  <input type='text' class='' id='nombre' name='nombre' placeholder='Nombre' #ticket='ngModel' [(ngModel)]='register.name' required maxlength="10" minlength="10">
+                  <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                </div>
+              <div class='form-group icon'>
+                  <input type='text' class='' id='appat' name='appat' placeholder='Apellido Paterno' #first_lastname='ngModel' [(ngModel)]='register.first_lastname' required maxlength="10" minlength="10">
+                  <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class='form-group icon'>
+                  <input type='text' class='' id='apmat' name='apmat' placeholder='Apellido Materno' #second_lastname='ngModel' [(ngModel)]='register.second_lastname' required maxlength="10" minlength="10">
+                  <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class='form-group icon'>
+                  <input type='text' class='' id='rboleta' name='rboleta' placeholder='Boleta' #ticket='ngModel' [(ngModel)]='register.ticket' required maxlength="10" minlength="10">
+                  <i class="fa fa-id-card fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class='form-group icon'>
+                  <input type='password' class='' id='rpassword' name='rpassword' placeholder='Contraseña' #password='ngModel' [(ngModel)]='register.password' required minlength="8" maxlength="16">
+                  <i class="fa fa-key fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class='checkbox'>
+                  <input type='checkbox' id='check' name='check' required><p style='font-size: 14px;'>Acepto los términos y condiciones</p>
+                  <a href="#" style='font-size: 17px; padding-left: 0px; padding-right: 0px; text-align: center;'>Términos y Condiciones</a>
+                </div>
+                <div class='form-group icon'>
+                  <input type='submit' class='btn btn-block' style='color: white;' id='registrar' name='registrar' value='Registrarme' [disabled]='!registrar.form.valid'>
+                </div>
+            </form>
+          </div>
+  </div>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../assets/web/Go Out.png" class="logo" alt="" width="12%" height="12%">
+  <span id="menu" class="menu">Menú&nbsp;</span><span id="menub" class="menub"> &#9776;</span>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1 hidden-xs hidden-sm">
+      <br><br><br><br><br><br>
+      <h1 class="fadeInRight">Go Out es un sistema web que tiene como objetivo ser una herramienta para la gestión de eventos
+         de alumnos del Cecyt 9 "Juan de Dios Bátiz".</h1>
+    </div>
+  </div>
+  <div class="row">
+    <br>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 hidden-md hidden-lg inicio-xs">
+      <br><br><br><br>
+      <h1 class="fadeInRight">Go Out es un sistema web que tiene como objetivo ser una herramienta para la gestión de eventos
+         para alumnos del Cecyt 9 "Juan de Dios Bátiz".</h1>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row info">
+    <h1 align="center">Únete a Go Out</h1>
+    <br>
+    <div class="col-md-3 col-md-offset-1">
+      <img src="../../assets/web/Calendar.jpg" alt="">
+      <hr>
+      <p id="p">Crea eventos y dalos a conocer al público del Cecyt 9.</p>
+    </div>
+    <div class="col-md-4">
+      <img src="../../assets/web/Buscar.jpg" alt="">
+      <hr>
+      <p style="font-size: 27px;">Busca eventos de tu interés. Asiste a ellos y conoce personas con tus mismos gustos.</p>
+    </div>
+    <div class="col-md-3">
+      <img src="../../assets/web/Saludo.jpg" alt="">
+      <hr>
+      <p>Más de 1200 alumnos que pueden acceder al sitio para conocerse.</p>
+      <br><br><br>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row info2">
+    <br>
+    <div class="col-md-2 col-md-offset-2">
+      <img src="../../assets/web/Social.jpg" alt="">
+    </div>
+    <div class="col-md-6">
+      <p>Sistema Web desarrollado por y para alumnos del Cecyt 9, con el propósito de 
+      que intenten liberar el estrés causado por sus propias actividades escolares.</p>
+    </div>
+  </div>
+  <br><br><br>
+</div>
+<footer class="footer">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</footer>
