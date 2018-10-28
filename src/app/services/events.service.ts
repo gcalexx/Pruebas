@@ -17,8 +17,8 @@ export class EventsService {
     this.url = Global.url;
   }
 
-  getEvents(): Observable<any>{
-    return this._http.get(this.url + "/api/events?page=1", {withCredentials: true});
+  getEvents(contador): Observable<any>{
+    return this._http.get(this.url + "/api/events?page=" + contador, {withCredentials: true});
   }
 
   getImage(nameImage: String): Observable<any>{

@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    $(document).ready(function(){
       $(".text, .text-user").hide();
       $(".nav").hide();
     
@@ -80,7 +79,6 @@ export class HomeComponent implements OnInit {
         $("#esidenav").css("width", "70px");
         $(".text, .text-user").hide();
       });
-    });
   }
 
   onSubmitLogin(form){

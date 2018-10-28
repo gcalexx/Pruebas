@@ -33,92 +33,23 @@
       <h1 style="color: white;">Próximos Eventos</h1>
       <hr>  
       <div class="row" id="row">
-        <a href="infoevento.html" id="" name="" class="a-event">
+        <a href="infoevento.html" id="" name="" class="a-event" *ngFor='let event of events'>
           <div class="col-xs-12 col-sm-6 col-md-4"><!--Inicio del div del evento-->
               <div class="event">
                 <div id="img-event" class="img-event">
-                  <img src="../../assets/web/evento.jpg" alt="" id="img-event">
+                  <img *ngIf='event.images[0]' src="{{url + '/api/events/images/' + event.images[0].image}}" alt="" id="img-event">
+                  <img *ngIf='!event.images[0]' src="../../assets/web/evento.jpg" alt="" id="img-event">
                 </div>
                   <div class="info-event">
-                    <h3 id="tittle-event" class="tittle-event">Título del evento</h3>
-                    <p id="date-event" class="date-event">Fecha del evento</p>
-                    <p id="address-event" class="address-event">Dirección del evento</p>
-                  </div>
-              </div>
-            </div><!--Fin del div del evento-->
-        </a>
-        <a href="infoevento.html" id="" name="" class="a-event">
-          <div class="col-xs-12 col-sm-6 col-md-4"><!--Inicio del div del evento-->
-              <div class="event">
-                <div id="img-event" class="img-event">
-                  <img src="../../assets/web/evento.jpg" alt="" id="img-event">
-                </div>
-                  <div class="info-event">
-                    <h3 id="tittle-event" class="tittle-event">Título del evento</h3>
-                    <p id="date-event" class="date-event">Fecha del evento</p>
-                    <p id="address-event" class="address-event">Dirección del evento</p>
-                  </div>
-              </div>
-            </div><!--Fin del div del evento-->
-        </a>
-        <a href="infoevento.html" id="" name="" class="a-event">
-          <div class="col-xs-12 col-sm-6 col-md-4"><!--Inicio del div del evento-->
-              <div class="event">
-                <div id="img-event" class="img-event">
-                  <img src="../../assets/web/evento.jpg" alt="" id="img-event">
-                </div>
-                  <div class="info-event">
-                    <h3 id="tittle-event" class="tittle-event">Título del evento</h3>
-                    <p id="date-event" class="date-event">Fecha del evento</p>
-                    <p id="address-event" class="address-event">Dirección del evento</p>
-                  </div>
-              </div>
-            </div><!--Fin del div del evento-->
-        </a>
-        <a href="infoevento.html" id="" name="" class="a-event">
-          <div class="col-xs-12 col-sm-6 col-md-4"><!--Inicio del div del evento-->
-              <div class="event">
-                <div id="img-event" class="img-event">
-                  <img src="../../assets/web/evento.jpg" alt="" id="img-event">
-                </div>
-                  <div class="info-event">
-                    <h3 id="tittle-event" class="tittle-event">Título del evento</h3>
-                    <p id="date-event" class="date-event">Fecha del evento</p>
-                    <p id="address-event" class="address-event">Dirección del evento</p>
-                  </div>
-              </div>
-            </div><!--Fin del div del evento-->
-        </a>
-        <a href="infoevento.html" id="" name="" class="a-event">
-          <div class="col-xs-12 col-sm-6 col-md-4"><!--Inicio del div del evento-->
-              <div class="event">
-                <div id="img-event" class="img-event">
-                  <img src="../../assets/web/evento.jpg" alt="" id="img-event">
-                </div>
-                  <div class="info-event">
-                    <h3 id="tittle-event" class="tittle-event">Título del evento</h3>
-                    <p id="date-event" class="date-event">Fecha del evento</p>
-                    <p id="address-event" class="address-event">Dirección del evento</p>
-                  </div>
-              </div>
-            </div><!--Fin del div del evento-->
-        </a>
-        <a href="infoevento.html" id="" name="" class="a-event">
-          <div class="col-xs-12 col-sm-6 col-md-4"><!--Inicio del div del evento-->
-              <div class="event">
-                <div id="img-event" class="img-event">
-                  <img src="../../assets/web/evento.jpg" alt="" id="img-event">
-                </div>
-                  <div class="info-event">
-                    <h3 id="tittle-event" class="tittle-event">Título del evento</h3>
-                    <p id="date-event" class="date-event">Fecha del evento</p>
-                    <p id="address-event" class="address-event">Dirección del evento</p>
+                    <h3 id="tittle-event" class="tittle-event">{{event.name_event}}</h3>
+                    <p id="date-event" class="date-event">{{event.date_event}}</p>
+                    <p id="address-event" class="address-event">{{event.address_event}}</p>
                   </div>
               </div>
             </div><!--Fin del div del evento-->
         </a>
       </div>
-      <div class="ver-mas" id="ver-mas" align="center">
+      <div class="ver-mas" id="ver-mas" align="center" (click)='getEvents();'>
         <p class="ver">Ver más</p>
         <span class="glyphicon glyphicon-menu-down flecha" aria-hidden="true"></span>
       </div>  

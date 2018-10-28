@@ -18,69 +18,70 @@ export class VieweventsComponent implements OnInit {
 
   public url = Global.url;
 
+  public contador = 0;
+
   constructor(
     private _eventsService: EventsService
   ) { }
 
   ngOnInit() {
-
     this.getEvents();
+    $(".text, .text-user").hide();
+    $(".nav").hide();
 
-    $(document).ready(function(){
-      $(".text, .text-user").hide();
-      $(".nav").hide();
-
-      $("#esidenav").mouseenter(function(){
-        $("#esidenav").css("width", "230px");
-        setTimeout( function(){
-          $(".text, .text-user").show();
-        }, 185);
-        
-      });
-      $("#esidenav").mouseleave(function(){
-        $("#esidenav").css("width", "70px");
-        $(".text, .text-user").hide();
-      });
-
-      $("#usuario").click(function(){
-        $("#esidenav").css("width", "70px");
-        $(".text, .text-user").hide();
-      });
-
-      $("#explorar").click(function(){
-        $("#esidenav").css("width", "70px");
-        $(".text, .text-user").hide();
-      });
-
-      $("#crear").click(function(){
-        $("#esidenav").css("width", "70px");
-        $(".text, .text-user").hide();
-      });
-
-      $("#buscar").click(function(){
-        $("#esidenav").css("width", "70px");
-        $(".text, .text-user").hide();
-      });
-
-      $("#configuracion").click(function(){
-        $("#esidenav").css("width", "70px");
-        $(".text, .text-user").hide();
-      });
-
-      $("#ver-mas").click(function(){
-        $(".a-event").clone().appendTo("#row");
-        $("html").animate({ scrollTop: $(document).height() }, 1000);
-      });
+    $("#esidenav").mouseenter(function () {
+      $("#esidenav").css("width", "230px");
+      setTimeout(function () {
+        $(".text, .text-user").show();
+      }, 185);
 
     });
+    $("#esidenav").mouseleave(function () {
+      $("#esidenav").css("width", "70px");
+      $(".text, .text-user").hide();
+    });
+
+    $("#usuario").click(function () {
+      $("#esidenav").css("width", "70px");
+      $(".text, .text-user").hide();
+    });
+
+    $("#explorar").click(function () {
+      $("#esidenav").css("width", "70px");
+      $(".text, .text-user").hide();
+    });
+
+    $("#crear").click(function () {
+      $("#esidenav").css("width", "70px");
+      $(".text, .text-user").hide();
+    });
+
+    $("#buscar").click(function () {
+      $("#esidenav").css("width", "70px");
+      $(".text, .text-user").hide();
+    });
+
+    $("#configuracion").click(function () {
+      $("#esidenav").css("width", "70px");
+      $(".text, .text-user").hide();
+    });
+
+    $("#ver-mas").click(function () {
+      $("html").animate({ scrollTop: $(document).height() }, 1000);
+    });
+
   }
 
-  getEvents(){
-    this._eventsService.getEvents().subscribe(
+  public getEvents() {
+    this._eventsService.getEvents(this.contador).subscribe(
       result => {
-        if(result){
-          this.events = result;
-          console.log(this.events);
+        if (result) {
+          if (this.contador != 0) {
+            Array.prototype.push.apply(this.events, result);
+          } else {
+            this.events = result;
+          }
+          this.contador++;
         }
       },
       error => {
@@ -90,5 +91,3 @@ export class VieweventsComponent implements OnInit {
   }
 
 }
-
-//{{url + '/api/events/images/' + event.images[0].image}}
