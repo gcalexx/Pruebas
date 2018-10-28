@@ -142,8 +142,24 @@ ul .glyphicon{
   animation-duration: 2s;
 }
 
-body{
+.fondo{
   background-color: rgba(108, 19, 43, .8);
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  position: absolute;
+  top:0; 
+  left:0;
+}
+
+.a-event{
+  text-decoration:none; 
+  color: #353535;
+}
+
+.a-event:hover{
+  text-decoration:none; 
+  color: #353535;
 }
 
 .event{
@@ -151,11 +167,6 @@ body{
   border: solid #424242 1px;
   background-color: white;
   margin: 10px;
-}
-
-.event button{
-  background-color: #6c132b;
-  color: white;
 }
 
 .img-event {
@@ -193,3 +204,37 @@ body{
   box-shadow: 0px 0px 20px rgb(255, 255, 255);
   transition: .5s;
 }
+
+.activo{
+  height: 77px;
+  width: 7px;
+  position: absolute;
+  background-color: #6c132b;
+  margin-top: -70px;
+  left: 0px;
+}
+
+.ver-mas{
+  font-size: 20px;
+  color: white;
+  cursor:pointer;
+  transition: 1s;
+}
+
+.ver-mas p{
+  transition: .6s;
+}
+
+.ver-mas span{
+  transition: .6s;
+  top : -15px;
+}
+
+.ver-mas:hover p{
+  font-size: 25px;
+}
+
+.ver-mas:hover span{
+  font-size: 25px;
+}
+
