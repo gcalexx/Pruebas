@@ -76,12 +76,16 @@ export class VieweventsComponent implements OnInit {
     this._eventsService.getEvents(this.contador).subscribe(
       result => {
         if (result) {
-          if (this.contador != 0) {
-            Array.prototype.push.apply(this.events, result);
+          if (result != 'No session') {
+            if (this.contador != 0) {
+              Array.prototype.push.apply(this.events, result);
+            } else {
+              this.events = result;
+            }
+            this.contador++;
           } else {
-            this.events = result;
+            console.log("Poner no session");
           }
-          this.contador++;
         }
       },
       error => {

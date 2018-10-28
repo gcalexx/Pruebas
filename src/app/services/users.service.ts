@@ -18,10 +18,14 @@ export class UsersService {
   }
   
   getUser(user): Observable<any>{
-    return this._http.get(this.url + "?ticket=" + user.ticket + "&password=" + user.password, {withCredentials: true});
+    return this._http.get(this.url + "/api/users?ticket=" + user.ticket + "&password=" + user.password, {withCredentials: true});
   }
 
   addUser(user): Observable<any>{
-    return this._http.post(this.url, user);
+    return this._http.post(this.url + "/api/users", user);
+  }
+
+  checkSession(): Observable<any>{
+    return this._http.get(this.url + "/api/users", {withCredentials: true})
   }
 }

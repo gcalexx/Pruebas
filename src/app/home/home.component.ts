@@ -25,6 +25,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this._usersService.checkSession().subscribe(
+      result => {
+        if(result == 'Sesion iniciada'){
+          console.log("Redirigir a view");
+        }
+      }
+    )
+
       $(".text, .text-user").hide();
       $(".nav").hide();
     
@@ -86,7 +95,6 @@ export class HomeComponent implements OnInit {
     this._usersService.getUser(this.login).subscribe(
       result => {
         console.log(result);
-        //localStorage.setItem('token', result.token);
       },
       error => {
         console.log(<any>error);
