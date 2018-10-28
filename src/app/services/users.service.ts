@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
+import { Global } from './global';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +14,7 @@ export class UsersService {
   constructor(
     public _http: HttpClient
   ) {
-    this.url = 'http://localhost:3000/api/users';
+    this.url = Global.url;
   }
   
   getUser(user): Observable<any>{
