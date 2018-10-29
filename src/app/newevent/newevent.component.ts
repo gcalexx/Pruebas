@@ -1,66 +1,82 @@
 import { Component, OnInit } from '@angular/core';
+
 import * as $ from 'jquery';
+import { EventsService } from '../services/events.service';
+import { Event } from '../models/event';
 
 @Component({
   selector: 'app-newevent',
   templateUrl: './newevent.component.html',
-  styleUrls: ['./newevent.component.css']
+  styleUrls: ['./newevent.component.css'],
+  providers: [EventsService]
 })
 export class NeweventComponent implements OnInit {
 
-  constructor() { }
+  public event: Event;
+  public filesToUpload: Array<File>;
+
+  constructor(
+    private _eventsService: EventsService
+  ) {
+    this.event = new Event('', '', '', '', '', '', '');
+  }
 
   ngOnInit() {
-  	$(document).ready(function(){
-  $(".text, .text-user").hide();
-  $(".nav").hide();
+    $(document).ready(function () {
+      $(".text, .text-user").hide();
+      $(".nav").hide();
 
-  $("#esidenav").mouseenter(function(){
-    $("#esidenav").css("width", "230px");
-    setTimeout( function(){
-      $(".text, .text-user").show();
-    }, 185);
-    
-  });
-  $("#esidenav").mouseleave(function(){
-    $("#esidenav").css("width", "70px");
-    $(".text, .text-user").hide();
-  });
+      $("#esidenav").mouseenter(function () {
+        $("#esidenav").css("width", "230px");
+        setTimeout(function () {
+          $(".text, .text-user").show();
+        }, 185);
 
-  $("#usuario").click(function(){
-    $("#esidenav").css("width", "70px");
-    $(".text, .text-user").hide();
-  });
+      });
+      $("#esidenav").mouseleave(function () {
+        $("#esidenav").css("width", "70px");
+        $(".text, .text-user").hide();
+      });
 
-  $("#explorar").click(function(){
-    $("#esidenav").css("width", "70px");
-    $(".text, .text-user").hide();
-  });
+      $("#usuario").click(function () {
+        $("#esidenav").css("width", "70px");
+        $(".text, .text-user").hide();
+      });
 
-  $("#crear").click(function(){
-    $("#esidenav").css("width", "70px");
-    $(".text, .text-user").hide();
-  });
+      $("#explorar").click(function () {
+        $("#esidenav").css("width", "70px");
+        $(".text, .text-user").hide();
+      });
 
-  $("#buscar").click(function(){
-    $("#esidenav").css("width", "70px");
-    $(".text, .text-user").hide();
-  });
+      $("#crear").click(function () {
+        $("#esidenav").css("width", "70px");
+        $(".text, .text-user").hide();
+      });
 
-  $("#configuracion").click(function(){
-    $("#esidenav").css("width", "70px");
-    $(".text, .text-user").hide();
-  });
+      $("#buscar").click(function () {
+        $("#esidenav").css("width", "70px");
+        $(".text, .text-user").hide();
+      });
 
-  $("#ver-mas").click(function(){
-    $(".a-event").clone().appendTo("#row");
-    $("html").animate({ scrollTop: $(document).height() }, 1000);
-  });
+      $("#configuracion").click(function () {
+        $("#esidenav").css("width", "70px");
+        $(".text, .text-user").hide();
+      });
 
-});
+      $("#ver-mas").click(function () {
+        $(".a-event").clone().appendTo("#row");
+        $("html").animate({ scrollTop: $(document).height() }, 1000);
+      });
+    });
 
+  }
 
+  onSubmitaddEvent(form){
 
+  }
+
+  fileChangeEvent(fileInput: any) {
+    this.filesToUpload = <Array<File>>fileInput.target.files;
   }
 
 }

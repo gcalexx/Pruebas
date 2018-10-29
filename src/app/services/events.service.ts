@@ -24,4 +24,10 @@ export class EventsService {
   getImage(nameImage: String): Observable<any>{
     return this._http.get(this.url + "/api/events/uploads/events/" + nameImage, {withCredentials: true});
   }
+
+  addEvent(event, files: Array<File>){
+    return new Promise(function(resolve, reject){
+      
+    });
+  }
 }
