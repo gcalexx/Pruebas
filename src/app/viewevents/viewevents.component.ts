@@ -76,7 +76,7 @@ export class VieweventsComponent implements OnInit {
     this._eventsService.getEvents(this.contador).subscribe(
       result => {
         if (result) {
-          if (result != 'No session') {
+          if (result != 'Sesion no iniciada') {
             if (this.contador != 0) {
               Array.prototype.push.apply(this.events, result);
             } else {

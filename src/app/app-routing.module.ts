@@ -6,7 +6,7 @@ import { VieweventsComponent } from './viewevents/viewevents.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'view', component: VieweventsComponent}
+  {path: 'viewevents', component: VieweventsComponent}
 ];
 
 @NgModule({

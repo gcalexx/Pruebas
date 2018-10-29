@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { VieweventsComponent } from './viewevents/viewevents.component';
+import { NeweventComponent } from './newevent/newevent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    VieweventsComponent
+    VieweventsComponent,
+    NeweventComponent
   ],
   imports: [
     BrowserModule,
