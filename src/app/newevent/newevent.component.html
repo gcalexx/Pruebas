@@ -1,3 +1,71 @@
-<p>
-  newevent works!
-</p>
+<div class="fondo">
+	<div class="container container-crear" id="container-crear">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 crear">
+				<h1>Crea un evento</h1>
+				<hr>
+				<form name="crear" method="" action="" class="form-horizontal form-crear">
+					<div class="form-group">
+				    	<label for="nombre" class="col-sm-2 control-label">Nombre:</label>
+				    	<div class="col-sm-10">
+				      		<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escribe un nombre corto y claro">
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+					    <label class="col-sm-2 control-label" for="imagen">Imagen:</label>
+					    <div class="col-md-10" style="margin-top: 7px;">
+					    	<input class="" type="file" id="imagen" name="imagen">
+					    </div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="descripcion" class="col-sm-2 control-label">Descripción:</label>
+				    	<div class="col-sm-10">
+				      		<textarea class="form-control" id="descripcion" name="descripcion" rows="3" 
+				      		placeholder="Escribe brevemente la descripción del evento"></textarea>
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="fecha" class="col-sm-2 control-label">Fecha:</label>
+				    	<div class="col-sm-4">
+				    		<input type='date' class="form-control" id='fecha' name="fecha" placeholder="Fecha del evento">
+			    		</div>
+			    		<label for="hora" class="col-sm-2 control-label">Hora:</label>
+				    	<div class="col-sm-4">
+				    		<input type='time' class="form-control" id='hora' name="hora" placeholder="Hora del evento">
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="direccion" class="col-sm-2 control-label">Dirección:</label>
+				    	<div class="col-sm-10">
+				      		<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección del evento">
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="categoria" class="col-sm-2 control-label">Categoría:</label>
+				    	<div class="col-sm-4">
+				    		<select class="form-control" id="categoria" name="categoria" placeholder="Categoría del evento">
+							    <option>Música</option>
+							    <option>Artes</option>
+							    <option>Ocio</option>
+							    <option>Deportes</option>
+							    <option>Fiestas</option>
+							</select>
+			    		</div>
+			    		<label for="privacidad" class="col-sm-2 control-label">Privacidad:</label>
+				    	<div class="col-sm-4">
+				    		<select class="form-control" id="privacidad" name="privacidad" placeholder="Privacidad del evento">
+							    <option>Público</option>
+							    <option>Privado</option>
+							</select>
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<div class="col-md-4 col-md-offset-4">
+				    		<input type="submit" class="btn btn-block" value="Crear evento">
+				    	</div>
+				  	</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
