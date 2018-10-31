@@ -72,7 +72,14 @@ export class NeweventComponent implements OnInit {
   }
 
   onSubmitaddEvent(form){
-
+    //form.reset();
+    this._eventsService.addEvent(this.event, this.filesToUpload)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   fileChangeEvent(fileInput: any) {

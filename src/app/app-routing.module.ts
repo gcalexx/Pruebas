@@ -8,7 +8,8 @@ import { NeweventComponent } from './newevent/newevent.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'viewevents', component: VieweventsComponent},
-  {path: 'newevent', component: NeweventComponent}
+  {path: 'newevent', component: NeweventComponent},
+  {path: '**', component: HomeComponent}
 ];
 
 @NgModule({
