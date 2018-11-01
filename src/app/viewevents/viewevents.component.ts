@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import * as $ from 'jquery';
 import { EventsService } from '../services/events.service';
 import { EventsView } from '../models/eventsView';
 
 import { Global } from '../services/global';
+import { Auth } from '../services/auth.guard';
 
 @Component({
   selector: 'app-viewevents',
@@ -21,7 +23,9 @@ export class VieweventsComponent implements OnInit {
   public contador = 0;
 
   constructor(
-    private _eventsService: EventsService
+    private _eventsService: EventsService,
+    private auth: Auth,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -84,7 +88,9 @@ export class VieweventsComponent implements OnInit {
             }
             this.contador++;
           } else {
-            console.log("Poner no session");
+            this.auth.setLogged(false);
+            this.router.navigateByUrl('/');
+            //console.log("Poner no session");
           }
         }
       },

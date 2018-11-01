@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import * as $ from 'jquery';
 import { EventsService } from '../services/events.service';
 import { Event } from '../models/event';
+import { Auth } from '../services/auth.guard';
 
 @Component({
   selector: 'app-newevent',
@@ -16,7 +18,9 @@ export class NeweventComponent implements OnInit {
   public filesToUpload: Array<File>;
 
   constructor(
-    private _eventsService: EventsService
+    private _eventsService: EventsService,
+    private auth: Auth,
+    private router: Router
   ) {
     this.event = new Event('', '', '', '', '', '', '');
   }
@@ -72,16 +76,22 @@ export class NeweventComponent implements OnInit {
   }
 
   onSubmitaddEvent(form){
-    //form.reset();
-    this._eventsService.addEvent(this.event, this.filesToUpload)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      })
+    this._eventsService.addEvent(this.event, this.filesToUpload).subscribe(
+      result => {
+        if(result != 'Sesion no iniciada'){
+          console.log(result);
+        }else{
+          this.auth.setLogged(false);
+          this.router.navigateByUrl('/');
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+    form.reset();
   }
-
+  
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
   }

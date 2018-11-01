@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Login } from '../models/login';
 import { Register } from '../models/register'
 
 import * as $ from 'jquery';
 import { UsersService } from '../services/users.service';
+import { Auth } from '../services/auth.guard';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +20,9 @@ export class HomeComponent implements OnInit {
   public register: Register;
 
   constructor(
-    private _usersService: UsersService
+    private _usersService: UsersService,
+    private auth: Auth,
+    private router: Router
   ) {
     this.login = new Login('','');
     this.register = new Register('','','','','');
@@ -29,7 +33,9 @@ export class HomeComponent implements OnInit {
     this._usersService.checkSession().subscribe(
       result => {
         if(result == 'Sesion iniciada'){
-          console.log("Redirigir a view");
+          this.auth.setLogged(true);
+          this.router.navigateByUrl('/viewevents');
+          //console.log("Redirigir a view");
         }
       }
     )
@@ -94,6 +100,8 @@ export class HomeComponent implements OnInit {
     console.log(this.login);
     this._usersService.getUser(this.login).subscribe(
       result => {
+        this.auth.setLogged(true);
+        this.router.navigateByUrl('/viewevents');
         console.log(result);
       },
       error => {
