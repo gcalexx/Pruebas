@@ -13,14 +13,14 @@
 				<a [routerLink]="['/viewevents']" id="explorar">
 					<li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><span class="text">Explorar</span></li>
 				</a>
-				<a href="#" onclick="return false;" id="crear">
+				<a [routerLink]="['/newevent']" id="crear">
 					<li><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><span class="text">Crear</span></li><div class="activo"></div>
 				</a>
 				<a href="buscar.html" id="buscar">
 					<li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="text">Buscar</span></li>
 				</a>
 				<a href="configuracion.html" id="configuracion">
-					<li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="text">ConfiguraciÃ³n</span></li>
+					<li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="text">Configuración</span></li>
 				</a>
 				<a href="#" onclick="return false;" id="salir">
 					<li><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><span class="text">Salir</span></li>
@@ -48,10 +48,10 @@
 					    </div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="descripcion" class="col-sm-2 control-label">DescripciÃ³n:</label>
+				    	<label for="descripcion" class="col-sm-2 control-label">Descripción:</label>
 				    	<div class="col-sm-10">
 				      		<textarea class="form-control" id="descripcion" name="descripcion" rows="3" 
-				      		placeholder="Escribe brevemente la descripciÃ³n del evento" #description='ngModel' [(ngModel)]='event.description' required></textarea>
+				      		placeholder="Escribe brevemente la descripción del evento" #description='ngModel' [(ngModel)]='event.description' required></textarea>
 			    		</div>
 				  	</div>
 				  	<div class="form-group">
@@ -65,16 +65,16 @@
 			    		</div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="direccion" class="col-sm-2 control-label">DirecciÃ³n:</label>
+				    	<label for="direccion" class="col-sm-2 control-label">Dirección:</label>
 				    	<div class="col-sm-10">
-				      		<input type="text" class="form-control" id="direccion" name="direccion" placeholder="DirecciÃ³n del evento" #address='ngModel' [(ngModel)]='event.address_event' required>
+				      		<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección del evento" #address='ngModel' [(ngModel)]='event.address_event' required>
 			    		</div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="categoria" class="col-sm-2 control-label">CategorÃ­a:</label>
+				    	<label for="categoria" class="col-sm-2 control-label">Categorí­a:</label>
 				    	<div class="col-sm-4">
-				    		<select class="form-control" id="categoria" name="categoria" placeholder="CategorÃ­a del evento" #category='ngModel' [(ngModel)]='event.category' required>
-							    <option>MÃºsica</option>
+				    		<select class="form-control" id="categoria" name="categoria" placeholder="Categorí­a del evento" #category='ngModel' [(ngModel)]='event.category' required>
+							    <option>Música</option>
 							    <option>Artes</option>
 							    <option>Ocio</option>
 							    <option>Deportes</option>
@@ -84,7 +84,7 @@
 			    		<label for="privacidad" class="col-sm-2 control-label">Privacidad:</label>
 				    	<div class="col-sm-4">
 				    		<select class="form-control" id="privacidad" name="privacidad" placeholder="Privacidad del evento" #type='ngModel' [(ngModel)]='event.type_event' required>
-							    <option>PÃºblico</option>
+							    <option>Público</option>
 							    <option>Privado</option>
 							</select>
 			    		</div>
@@ -101,7 +101,7 @@
 	<div class="container container-crear" id="container-crear">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 head-new">
-				<h1>Â¡Crea un nuevo evento!</h1>
+				<h1>¡Crea un nuevo evento!</h1>
 			</div>
 			<div class="col-md-8 col-md-offset-2 crear">
 				<form name="crear" method="" action="" class="form-horizontal form-crear" #addEvent='ngForm' (ngSubmit)='onSubmitaddEvent(addEvent)'>
@@ -123,10 +123,10 @@
 					    </div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="descripcion" class="col-md-2 col-md-offset-1 control-label">DescripciÃ³n:</label>
+				    	<label for="descripcion" class="col-md-2 col-md-offset-1 control-label">Descripción:</label>
 				    	<div class="col-md-8">
 				      		<textarea class="form-control" id="descripcion" name="descripcion" rows="3" 
-				      		placeholder="Escribe brevemente la descripciÃ³n del evento" #description='ngModel' [(ngModel)]='event.description' required></textarea>
+				      		placeholder="Escribe brevemente la descripción del evento" #description='ngModel' [(ngModel)]='event.description' required></textarea>
 			    		</div>
 				  	</div>
 				  	<div class="form-group">
@@ -139,16 +139,16 @@
 			    		</div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="direccion" class="col-md-2 col-md-offset-1 control-label">DirecciÃ³n:</label>
+				    	<label for="direccion" class="col-md-2 col-md-offset-1 control-label">Dirección:</label>
 				    	<div class="col-md-8">
-				      		<input type="text" class="form-control" id="direccion" name="direccion" placeholder="DirecciÃ³n del evento" #address='ngModel' [(ngModel)]='event.address_event' required>
+				      		<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección del evento" #address='ngModel' [(ngModel)]='event.address_event' required>
 			    		</div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="categoria" class="col-md-2 col-md-offset-1 control-label">CategorÃ­a:</label>
+				    	<label for="categoria" class="col-md-2 col-md-offset-1 control-label">Categorí­a:</label>
 				    	<div class="col-md-3">
-				    		<select class="form-control" id="categoria" name="categoria" placeholder="CategorÃ­a del evento" #category='ngModel' [(ngModel)]='event.category' required>
-							    <option>MÃºsica</option>
+				    		<select class="form-control" id="categoria" name="categoria" placeholder="Categorí­a del evento" #category='ngModel' [(ngModel)]='event.category' required>
+							    <option>Música</option>
 							    <option>Cultura</option>
 							    <option>Ocio</option>
 							    <option>Deportes</option>
@@ -158,7 +158,7 @@
 			    		<label for="privacidad" class="col-md-2 control-label">Privacidad:</label>
 				    	<div class="col-md-3">
 				    		<select class="form-control" id="privacidad" name="privacidad" placeholder="Privacidad del evento" #type='ngModel' [(ngModel)]='event.type_event' required>
-							    <option>PÃºblico</option>
+							    <option>Público</option>
 							    <option>Privado</option>
 							</select>
 			    		</div>

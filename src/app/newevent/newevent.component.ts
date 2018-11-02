@@ -70,33 +70,32 @@ export class NeweventComponent implements OnInit {
         $("html").animate({ scrollTop: $(document).height() }, 1000);
       });
 
-      $("#menu-events").click(function(){
+      $("#menu-events").click(function () {
         $("#esidenav").removeClass("hidden-xs");
         $("#esidenav").css("width", "230px");
-        setTimeout( function(){
+        setTimeout(function () {
           $(".text, .text-user").show();
         }, 185);
       });
 
-      $("#close-events").click(function(){
+      $("#close-events").click(function () {
         $("#esidenav").css("width", "0px");
         $(".text, .text-user").hide();
-        setTimeout( function(){
+        setTimeout(function () {
           $("#esidenav").addClass("hidden-xs");
         }, 450);
-        
       });
 
     });
 
   }
 
-  onSubmitaddEvent(form){
+  onSubmitaddEvent(form) {
     this._eventsService.addEvent(this.event, this.filesToUpload).subscribe(
       result => {
-        if(result != 'Sesion no iniciada'){
+        if (result != 'Sesion no iniciada') {
           console.log(result);
-        }else{
+        } else {
           this.router.navigateByUrl('/');
         }
       },
@@ -106,7 +105,7 @@ export class NeweventComponent implements OnInit {
     );
     form.reset();
   }
-  
+
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
   }

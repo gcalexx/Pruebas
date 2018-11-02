@@ -11,10 +11,10 @@
           <a href="usuario.html" id="usuario">
             <li><img src="../../assets/web//User.jpg" class="user-img" alt=""><span class="text-user">Usuario</span></li>
           </a>
-          <a href="#" onclick="return false;" id="explorar">
+          <a [routerLink]="['/viewevents']" id="explorar">
             <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><span class="text">Explorar</span></li><div class="activo"></div>
           </a>
-          <a href="crear.html" id="crear">
+          <a [routerLink]="['/newevent']" id="crear">
             <li><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><span class="text">Crear</span></li>
           </a>
           <a href="buscar.html" id="buscar">
