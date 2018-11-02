@@ -27,16 +27,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this._usersService.checkSession().subscribe(
-      result => {
-        if(result == 'Sesion iniciada'){
-          this.router.navigateByUrl('/viewevents');
-          //console.log("Redirigir a view");
-        }
-      }
-    )
-
       $(".text, .text-user").hide();
       $(".nav").hide();
     

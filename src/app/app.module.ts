@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { VieweventsComponent } from './viewevents/viewevents.component';
 import { NeweventComponent } from './newevent/newevent.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     VieweventsComponent,
-    NeweventComponent
+    NeweventComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

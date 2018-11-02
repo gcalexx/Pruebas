@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
-export class Auth implements CanActivate {
+export class noAuth implements CanActivate {
     constructor(
         private router: Router,
         private _usersService: UsersService
@@ -17,10 +17,10 @@ export class Auth implements CanActivate {
 
         return this._usersService.checkSession().pipe(map(res => {
             if(res == 'Sesion iniciada'){
-                return true;
-            } else {
-                this.router.navigateByUrl('/');
+                this.router.navigateByUrl('/viewevents');
                 return false;
+            } else {
+                return true;
             }
         }))
         

@@ -28,4 +28,8 @@ export class UsersService {
   checkSession(): Observable<any> {
     return this._http.get(this.url + "/api/users/session", { withCredentials: true })
   }
+
+  logout(): Observable<any> {
+    return this._http.get(this.url + "/api/users/session/logout", {withCredentials: true})
+  }
 }
