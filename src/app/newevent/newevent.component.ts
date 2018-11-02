@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { EventsService } from '../services/events.service';
 import { Event } from '../models/event';
-import { Auth } from '../services/auth.guard';
 
 @Component({
   selector: 'app-newevent',
@@ -19,7 +18,6 @@ export class NeweventComponent implements OnInit {
 
   constructor(
     private _eventsService: EventsService,
-    private auth: Auth,
     private router: Router
   ) {
     this.event = new Event('', '', '', '', '', '', '');
@@ -81,7 +79,6 @@ export class NeweventComponent implements OnInit {
         if(result != 'Sesion no iniciada'){
           console.log(result);
         }else{
-          this.auth.setLogged(false);
           this.router.navigateByUrl('/');
         }
       },
