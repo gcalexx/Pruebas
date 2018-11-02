@@ -111,9 +111,10 @@ ul .glyphicon{
 .closebtn-events{
     position: absolute;
     top: 0;
-    right: 25px;
+    left: 25px;
     font-size: 36px;
-    margin-left: 50px;
+    margin-right: 50px;
+    color: white;
 }
 
 
@@ -133,25 +134,23 @@ ul .glyphicon{
 }
 
 .fondo{
-  background-color: rgba(108, 19, 43, .8);
+  background-image: url(../../assets/web/fondoe.jpg);
+  background-repeat: no-repeat;
   width: 100%;
   min-height: 100%;
-  height: auto !important;
+  height: 100%;
   position: absolute;
   top:0; 
   left:0;
 }
 
 .crear{
-  background-color: rgba(255, 255, 255, .2);
-  margin-top: 40px;
-  border-radius: 5px;
-  padding: 4rem;
+  background-color: rgba(20, 20, 20, .8);
+  border-radius: 0px 0px 5px 5px;
+  padding-top: 25px;
+  padding-bottom: 15px;
   color: white;
-}
-
-.crear > input[type=text]{
-
+  margin-top: 0px;
 }
 
 .activo{
@@ -161,4 +160,143 @@ ul .glyphicon{
   background-color: #6c132b;
   margin-top: -70px;
   left: 0px;
+}
+
+.head-new{
+  color: rgb(20, 20, 20);
+  background-color: rgb(255, 255, 255);
+  margin-top: 70px;
+  padding: .1px;
+  text-align: center;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.crear input[type=submit] {
+  background: #6c132b;
+  transition: all .5s;
+}
+
+.crear input[type=submit]:hover {
+  background: #430e1c;
+  color: white;
+}
+
+.crear input[type=text]{
+  color: black;
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 1px 0;
+  outline: none;
+  padding: 3px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  position: relative;
+}
+
+.crear input[type=text]:focus {
+  border-color: #6c132b;
+  box-shadow: 0 0 8px 0 #6c132b;
+}
+
+.crear textarea{
+  color: black;
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 1px 0;
+  outline: none;
+  padding: 3px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  position: relative;
+}
+
+.crear textarea:focus {
+  border-color: #6c132b;
+  box-shadow: 0 0 8px 0 #6c132b;
+}
+
+.crear input[type=date]{
+  color: black;
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 1px 0;
+  outline: none;
+  padding: 3px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  position: relative;
+}
+
+.crear input[type="date"]:focus {
+  border-color: #6c132b;
+  box-shadow: 0 0 8px 0 #6c132b;
+}
+
+.crear input[type=time]{
+  color: black;
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 1px 0;
+  outline: none;
+  padding: 3px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  position: relative;
+}
+
+.crear input[type="time"]:focus {
+  border-color: #6c132b;
+  box-shadow: 0 0 8px 0 #6c132b;
+}
+
+.crear select{
+  color: black;
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 1px 0;
+  outline: none;
+  padding: 3px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  position: relative;
+}
+
+.crear select:focus {
+  border-color: #6c132b;
+  box-shadow: 0 0 8px 0 #6c132b;
+  outline: none;
+}
+
+.crear input[type=file] {
+  width: 0.1px;
+ height: 0.1px;
+ opacity: 0;
+ overflow: hidden;
+ position: absolute;
+ z-index: -1;
+  
+}
+
+.crear label[for=imagen] {
+  margin-top: -5px;
+ font-size: 15px;
+ color: white;
+ background: #6c132b;
+ display: inline-block;
+ transition: all .5s;
+ cursor: pointer;
+ padding: 10px;
+ width: 100%;
+ text-align: center;
+ border-radius: 5px;
+ }
+
+.crear label[for=imagen]:hover {
+ background: #430e1c;
+  color: white;
 }

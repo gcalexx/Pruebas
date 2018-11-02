@@ -27,12 +27,13 @@
 				</a>
 			</ul>
 		</div>
-	</div>
+	</div><!--
 	<div class="container container-crear" id="container-crear">
 		<div class="row">
+			<div class="col-md-8 col-md-offset-2 head-new">
+				<h1>¡Crea un nuevo evento!</h1>
+			</div>
 			<div class="col-md-8 col-md-offset-2 crear">
-				<h1>Crea un evento</h1>
-				<hr>
 				<form name="crear" class="form-horizontal form-crear" #addEvent='ngForm' (ngSubmit)='onSubmitaddEvent(addEvent)'>
 					<div class="form-group">
 				    	<label for="nombre" class="col-sm-2 control-label">Nombre:</label>
@@ -90,6 +91,80 @@
 				  	</div>
 				  	<div class="form-group">
 				    	<div class="col-md-4 col-md-offset-4">
+				    		<input type="submit" class="btn btn-block" value="Crear evento" [disabled]='!addEvent.form.valid'>
+				    	</div>
+				  	</div>
+				</form>
+			</div>
+		</div>
+	</div>-->
+	<div class="container container-crear" id="container-crear">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 head-new">
+				<h1>¡Crea un nuevo evento!</h1>
+			</div>
+			<div class="col-md-8 col-md-offset-2 crear">
+				<form name="crear" method="" action="" class="form-horizontal form-crear" #addEvent='ngForm' (ngSubmit)='onSubmitaddEvent(addEvent)'>
+					<div class="form-group">
+				    	<label for="nombre" class="col-md-2 col-md-offset-1 control-label">Nombre:</label>
+				    	<div class="col-md-8">
+				      		<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escribe un nombre corto y claro" #name='ngModel' [(ngModel)]='event.name_event' required>
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+					    <label class="col-md-2 col-md-offset-1 control-label">Imagen:</label>
+					    <div class="col-md-8" style="margin-top: 7px;">
+					    	<span>	
+					    		<input class="" type="file" id="imagen" name="imagen" required (change)="fileChangeEvent($event)" accept="image/jpg, image/jpeg, image/png, image/gif" multiple>
+					    	</span>
+					    	<label for="imagen">
+					    		<span>Carga los archivos que quieras</span>
+					    	</label>
+					    </div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="descripcion" class="col-md-2 col-md-offset-1 control-label">Descripción:</label>
+				    	<div class="col-md-8">
+				      		<textarea class="form-control" id="descripcion" name="descripcion" rows="3" 
+				      		placeholder="Escribe brevemente la descripción del evento" #description='ngModel' [(ngModel)]='event.description' required></textarea>
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="fecha" class="col-md-2 col-md-offset-1 control-label">Fecha y hora:</label>
+				    	<div class="col-md-4">
+				    		<input type='date' class="form-control" id='fecha' name="fecha" placeholder="Fecha del evento" #date='ngModel' [(ngModel)]='event.date_event' required>
+			    		</div>
+			    		<div class="col-md-4">
+				    		<input type='time' class="form-control" id='hora' name="hora" placeholder="Hora del evento" #hour='ngModel' [(ngModel)]='event.hour_event' required>
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="direccion" class="col-md-2 col-md-offset-1 control-label">Dirección:</label>
+				    	<div class="col-md-8">
+				      		<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección del evento" #address='ngModel' [(ngModel)]='event.address_event' required>
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="categoria" class="col-md-2 col-md-offset-1 control-label">Categoría:</label>
+				    	<div class="col-md-3">
+				    		<select class="form-control" id="categoria" name="categoria" placeholder="Categoría del evento" #category='ngModel' [(ngModel)]='event.category' required>
+							    <option>Música</option>
+							    <option>Cultura</option>
+							    <option>Ocio</option>
+							    <option>Deportes</option>
+							    <option>Fiestas</option>
+							</select>
+			    		</div>
+			    		<label for="privacidad" class="col-md-2 control-label">Privacidad:</label>
+				    	<div class="col-md-3">
+				    		<select class="form-control" id="privacidad" name="privacidad" placeholder="Privacidad del evento" #type='ngModel' [(ngModel)]='event.type_event' required>
+							    <option>Público</option>
+							    <option>Privado</option>
+							</select>
+			    		</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<div class="col-md-6 col-md-offset-3">
 				    		<input type="submit" class="btn btn-block" value="Crear evento" [disabled]='!addEvent.form.valid'>
 				    	</div>
 				  	</div>

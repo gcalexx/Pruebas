@@ -69,6 +69,24 @@ export class NeweventComponent implements OnInit {
         $(".a-event").clone().appendTo("#row");
         $("html").animate({ scrollTop: $(document).height() }, 1000);
       });
+
+      $("#menu-events").click(function(){
+        $("#esidenav").removeClass("hidden-xs");
+        $("#esidenav").css("width", "230px");
+        setTimeout( function(){
+          $(".text, .text-user").show();
+        }, 185);
+      });
+
+      $("#close-events").click(function(){
+        $("#esidenav").css("width", "0px");
+        $(".text, .text-user").hide();
+        setTimeout( function(){
+          $("#esidenav").addClass("hidden-xs");
+        }, 450);
+        
+      });
+
     });
 
   }
