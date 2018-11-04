@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway|Varela+Round');
+
 
 @-webkit-keyframes fadeInLeft {
   from {
@@ -188,20 +189,28 @@ ul .glyphicon{
 
 .day-number{
   font-size: 100px;
-  margin-bottom: -20px; 
-  margin-top: -20px;
+  margin-top: -10px;
   color: #6c132b;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .month{
   font-size: 30px;
-  margin-bottom: -10px; 
-  margin-top: -10px;
+  margin-top: -50px;
+}
+
+.year{
+  font-size: 47px; 
+  margin-top: -25px;
+  color: #6c132b;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .time{
-  font-size: 20px;
-  margin-top: 0px;
+  font-size: 25px;
+  margin-top: -30px;
+  font-family: 'Varela Round', sans-serif;
+  display: inline;
 }
 
 .activo{
@@ -234,13 +243,25 @@ ul .glyphicon{
   font-weight: bold;
 }
 
-.info button {
+.asistir{
+  background: rgba(108, 19, 43, .2);
+  border: 2px solid #6c132b;
+  color: white;
+  transition: .5s;
+}
+
+.asistir:hover {
+  background: #6c132b;
+  color: white;
+}
+
+.asistire{
   background: #6c132b;
   color: white;
   transition: .5s;
 }
 
-.info button:hover {
+.asistire:hover {
   background: #430e1c;
   color: white;
 }
