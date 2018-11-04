@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { VieweventsComponent } from './viewevents/viewevents.component';
 import { NeweventComponent } from './newevent/newevent.component';
 import { LogoutComponent } from './logout/logout.component';
+import { VieweventComponent } from './viewevent/viewevent.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LogoutComponent } from './logout/logout.component';
     HomeComponent,
     VieweventsComponent,
     NeweventComponent,
-    LogoutComponent
+    LogoutComponent,
+    VieweventComponent
   ],
   imports: [
     BrowserModule,
