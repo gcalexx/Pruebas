@@ -1,88 +1,123 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+import { EventsService } from '../services/events.service';
+import { Event } from '../models/event';
+
+import { Global } from '../services/global';
+
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-viewevent',
-  templateUrl: './viewevent.component.html',
-  styleUrls: ['./viewevent.component.css']
+	selector: 'app-viewevent',
+	templateUrl: './viewevent.component.html',
+	styleUrls: ['./viewevent.component.css'],
+  providers: [EventsService]
 })
 export class VieweventComponent implements OnInit {
 
-  constructor() { }
+	public event: Event;
 
-  ngOnInit() {
-  	$(".text, .text-user").hide();
-	  $(".nav").hide();
-	  $("#popup_shadow").hide();
-	  $('#popup').hide();
+	public url = Global.url;
 
-	  $("#esidenav").mouseenter(function(){
-	    $("#esidenav").css("width", "230px");
-	    setTimeout( function(){
-	      $(".text, .text-user").show();
-	    }, 185);
-	    
-	  });
-	  $("#esidenav").mouseleave(function(){
-	    $("#esidenav").css("width", "70px");
-	    $(".text, .text-user").hide();
-	  });
+	constructor(
+		private _eventsService: EventsService,
+		private route: ActivatedRoute,
+		private router: Router
+	) { 
+		this.event = new Event('','','','','','','', null, null);
+	}
 
-	  $("#usuario").click(function(){
-	    $("#esidenav").css("width", "70px");
-	    $(".text, .text-user").hide();
-	  });
+	ngOnInit() {
 
-	  $("#explorar").click(function(){
-	    $("#esidenav").css("width", "70px");
-	    $(".text, .text-user").hide();
-	  });
+		this.route.params.subscribe((params: Params) => {
+			this.getEvent(params.id);
+		});
 
-	  $("#crear").click(function(){
-	    $("#esidenav").css("width", "70px");
-	    $(".text, .text-user").hide();
-	  });
+		$(".text, .text-user").hide();
+		$(".nav").hide();
+		$("#popup_shadow").hide();
+		$('#popup').hide();
 
-	  $("#buscar").click(function(){
-	    $("#esidenav").css("width", "70px");
-	    $(".text, .text-user").hide();
-	  });
+		$("#esidenav").mouseenter(function () {
+			$("#esidenav").css("width", "230px");
+			setTimeout(function () {
+				$(".text, .text-user").show();
+			}, 185);
 
-	  $("#configuracion").click(function(){
-	    $("#esidenav").css("width", "70px");
-	    $(".text, .text-user").hide();
-	  });
+		});
+		$("#esidenav").mouseleave(function () {
+			$("#esidenav").css("width", "70px");
+			$(".text, .text-user").hide();
+		});
 
-	  $("#ver-mas").click(function(){
-	    $(".a-event").clone().appendTo("#row");
-	    $("html").animate({ scrollTop: $(document).height() }, 1000);
-	  });
+		$("#usuario").click(function () {
+			$("#esidenav").css("width", "70px");
+			$(".text, .text-user").hide();
+		});
 
-	  $("#menu-events").click(function(){
-	      $("#esidenav").removeClass("hidden-xs");
-	      $("#esidenav").css("width", "230px");
-	    setTimeout( function(){
-	      $(".text, .text-user").show();
-	    }, 185);
-	  });
+		$("#explorar").click(function () {
+			$("#esidenav").css("width", "70px");
+			$(".text, .text-user").hide();
+		});
 
-	  $("#close-events").click(function(){
-	    $("#esidenav").css("width", "0px");
-	    $(".text, .text-user").hide();
-	    setTimeout( function(){
-	      $("#esidenav").addClass("hidden-xs");
-	    }, 450);
-	  });
+		$("#crear").click(function () {
+			$("#esidenav").css("width", "70px");
+			$(".text, .text-user").hide();
+		});
 
-	  $("#mas").click(function(){
-	    $("#popup_shadow").fadeIn(500);
-	    $('#popup').fadeIn(500);
-	  }); 
+		$("#buscar").click(function () {
+			$("#esidenav").css("width", "70px");
+			$(".text, .text-user").hide();
+		});
 
-	  $("#close").click(function(){
-	    $("#popup_shadow").fadeOut(500);    
-	    $('#popup').fadeOut(500);
-	  }); 
-  }
+		$("#configuracion").click(function () {
+			$("#esidenav").css("width", "70px");
+			$(".text, .text-user").hide();
+		});
+
+		$("#ver-mas").click(function () {
+			$(".a-event").clone().appendTo("#row");
+			$("html").animate({ scrollTop: $(document).height() }, 1000);
+		});
+
+		$("#menu-events").click(function () {
+			$("#esidenav").removeClass("hidden-xs");
+			$("#esidenav").css("width", "230px");
+			setTimeout(function () {
+				$(".text, .text-user").show();
+			}, 185);
+		});
+
+		$("#close-events").click(function () {
+			$("#esidenav").css("width", "0px");
+			$(".text, .text-user").hide();
+			setTimeout(function () {
+				$("#esidenav").addClass("hidden-xs");
+			}, 450);
+		});
+
+		$("#mas").click(function () {
+			$("#popup_shadow").fadeIn(500);
+			$('#popup').fadeIn(500);
+		});
+
+		$("#close").click(function () {
+			$("#popup_shadow").fadeOut(500);
+			$('#popup').fadeOut(500);
+		});
+	}
+
+	getEvent(id_event: String){
+		this._eventsService.getEvent(id_event).subscribe(
+			result => {
+				this.event = result;
+				console.log(this.event);
+			},
+			error => {
+				console.log(<any>error);
+			}
+		);
+	}
 
 }

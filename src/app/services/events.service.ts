@@ -21,9 +21,13 @@ export class EventsService {
     return this._http.get(this.url + "/api/events?page=" + contador, { withCredentials: true });
   }
 
-  getImage(nameImage: String): Observable<any> {
-    return this._http.get(this.url + "/api/events/uploads/events/" + nameImage, { withCredentials: true });
+  getEvent(event): Observable<any> {
+    return this._http.get(this.url + "/api/events/" + event, { withCredentials: true});
   }
+/*
+  getImage(nameImage: String): Observable<any> {
+    return this._http.get(this.url + "/api/events/image/" + nameImage, { withCredentials: true });
+  }*/
 
   addEvent(event, files: Array<File>): Observable<any> {
 

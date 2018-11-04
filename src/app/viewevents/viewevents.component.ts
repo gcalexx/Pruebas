@@ -15,7 +15,7 @@ import { Global } from '../services/global';
 })
 export class VieweventsComponent implements OnInit {
 
-  public events: EventsView;
+  public events: Array<EventsView>;
 
   public url = Global.url;
 
@@ -24,7 +24,9 @@ export class VieweventsComponent implements OnInit {
   constructor(
     private _eventsService: EventsService,
     private router: Router
-  ) { }
+  ) {
+    this.events = new Array();
+   }
 
   ngOnInit() {
     this.getEvents();
@@ -95,15 +97,10 @@ export class VieweventsComponent implements OnInit {
       result => {
         if (result) {
           if (result != 'Sesion no iniciada') {
-            if (this.contador != 0) {
               Array.prototype.push.apply(this.events, result);
-            } else {
-              this.events = result;
-            }
             this.contador++;
           } else {
             this.router.navigateByUrl('/');
-            //console.log("Poner no session");
           }
         }
       },

@@ -20,7 +20,7 @@ export class NeweventComponent implements OnInit {
     private _eventsService: EventsService,
     private router: Router
   ) {
-    this.event = new Event('', '', '', '', '', '', '');
+    this.event = new Event('', '', '', '', '', '', '', null, null);
   }
 
   ngOnInit() {

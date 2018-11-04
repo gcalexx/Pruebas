@@ -9,10 +9,10 @@
 			<a href="usuario.html" id="usuario">
 				<li><img src="../../assets/web/User.jpg" class="user-img" alt=""><span class="text-user">Usuario</span></li>
 			</a>
-			<a href="explorar.html" id="explorar">
+			<a [routerLink]="['/viewevents']" id="explorar">
 				<li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><span class="text">Explorar</span></li><div class="activo"></div>
 			</a>
-			<a href="crear.html" id="crear">
+			<a [routerLink]="['/newevent']" id="crear">
 				<li><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><span class="text">Crear</span></li>
 			</a>
 			<a href="buscar.html" id="buscar">
@@ -21,7 +21,7 @@
 			<a href="configuracion.html" id="configuracion">
 				<li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="text">Configuración</span></li>
 			</a>
-			<a href="#" onclick="return false;" id="salir">
+			<a [routerLink]="['/logout']" id="salir">
 				<li><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><span class="text">Salir</span></li>
 			</a>
 		</ul>
@@ -32,9 +32,11 @@
 		<div class="col-md-6 col-md-offset-2 event">
 			<div id="carousel" class="carousel slide" data-ride="carousel">
 			  	<div class="carousel-inner" role="listbox">
+					  <!-- Imagen del carrusel -->
 			    	<div class="item ">
 			    	  	<img class="img-event" src="../../assets/web/evento.jpg" alt="...">
-			    	</div>
+					</div>
+					<!--Imagen del carrusel activa-->
 			    	<div class="item active">
 			      		<img class="img-event" src="../../assets/web/ocio.jpg" alt="...">
 			    	</div>
@@ -52,7 +54,7 @@
 		<div class="col-md-8 col-md-offset-2 info">
 			<div class="row">	
 				<div class="col-md-10 col-md-offset-1">
-					<h1 id="nombre-evento">Nombre del evento</h1>
+					<h1 id="nombre-evento">{{event.name_event}}</h1>
 					<span>De: </span><span id="organizador">Organizador</span>
 					<hr>
 				</div>
@@ -60,11 +62,11 @@
 			<div class="row">	
 				<div class="col-md-7 col-md-offset-1">
 					<h3>Descripción:</h3>
-					<p id="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque explicabo odit vero possimus, accusamus a dolor quidem impedit, aspernatur quibusdam iusto ad tenetur, quos cumque recusandae pariatur veritatis illum eligendi. 	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio odit, veritatis nulla enim blanditiis dolor repudiandae quod maxime assumenda qui perferendis dolorum suscipit fugit magni, molestiae sapiente? Recusandae saepe, nulla.</p>
+					<p id="descripcion">{{event.description}}</p>
 				</div>
 				<div class="col-md-3">
 					<h3>Dirección:</h3>
-					<p id="direccion">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem impedit.</p>
+					<p id="direccion">{{event.address_event}}</p>
 				</div>
 				<div class="hidden-sm hidden-md hidden-lg col-md-12 date-xs">
 					<span id="day">Sábado</span>
