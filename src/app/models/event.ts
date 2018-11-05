@@ -3,8 +3,7 @@ export class Event {
         public name_event: String,
         public type_event: String,
         public category: String,
-        public date_event: String,
-        public hour_event: String,
+        public date_event: Date,
         public address_event: String,
         public description: String,
         public images: [{

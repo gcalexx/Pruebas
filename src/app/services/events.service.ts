@@ -22,19 +22,20 @@ export class EventsService {
   }
 
   getEvent(event): Observable<any> {
-    return this._http.get(this.url + "/api/events/" + event, { withCredentials: true});
+    return this._http.get(this.url + "/api/events/" + event, { withCredentials: true });
   }
-/*
-  getImage(nameImage: String): Observable<any> {
-    return this._http.get(this.url + "/api/events/image/" + nameImage, { withCredentials: true });
-  }*/
+  /*
+    getImage(nameImage: String): Observable<any> {
+      return this._http.get(this.url + "/api/events/image/" + nameImage, { withCredentials: true });
+    }*/
 
   addEvent(event, files: Array<File>): Observable<any> {
 
     var formData = new FormData();
-
-    for (var i = 0; i < files.length; i++) {
-      formData.append('images', files[i]);
+    if (files) {
+      for (var i = 0; i < files.length; i++) {
+        formData.append('images', files[i]);
+      }
     }
 
     formData.append('name_event', event.name_event);

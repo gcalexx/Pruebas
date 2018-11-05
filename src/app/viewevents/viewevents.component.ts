@@ -6,6 +6,8 @@ import { EventsService } from '../services/events.service';
 import { EventsView } from '../models/eventsView';
 
 import { Global } from '../services/global';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-viewevents',
@@ -97,6 +99,11 @@ export class VieweventsComponent implements OnInit {
       result => {
         if (result) {
           if (result != 'Sesion no iniciada') {
+              result.map(function (event){
+                event.date_event = new Date(event.date_event);
+                moment.locale('es');
+                event.date_event = moment(event.date_event).format('LLLL');
+              });
               Array.prototype.push.apply(this.events, result);
             this.contador++;
           } else {

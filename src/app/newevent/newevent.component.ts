@@ -15,15 +15,20 @@ export class NeweventComponent implements OnInit {
 
   public event: Event;
   public filesToUpload: Array<File>;
+  public hour_string: any;
+  public date_string: any;
 
   constructor(
     private _eventsService: EventsService,
     private router: Router
   ) {
-    this.event = new Event('', '', '', '', '', '', '', null, null);
+    this.event = new Event('', '', '', null, '', '', null, null);
+    this.date_string = "";
+    this.hour_string = "";
   }
 
   ngOnInit() {
+
     $(document).ready(function () {
       $(".text, .text-user").hide();
       $(".nav").hide();
@@ -91,10 +96,14 @@ export class NeweventComponent implements OnInit {
   }
 
   onSubmitaddEvent(form) {
+  
+    this.date_string = this.date_string.split("-").map(Number);
+    this.hour_string = this.hour_string.split(":").map(Number);
+    this.event.date_event = new Date(this.date_string[0], this.date_string[1] - 1, this.date_string[2], this.hour_string[0], this.hour_string[1], 0, 0);
+
     this._eventsService.addEvent(this.event, this.filesToUpload).subscribe(
       result => {
         if (result != 'Sesion no iniciada') {
-          console.log(result);
         } else {
           this.router.navigateByUrl('/');
         }

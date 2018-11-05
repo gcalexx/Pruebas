@@ -7,6 +7,8 @@ import { Event } from '../models/event';
 import { Global } from '../services/global';
 
 import * as $ from 'jquery';
+import * as moment from 'moment';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
 	selector: 'app-viewevent',
@@ -20,12 +22,18 @@ export class VieweventComponent implements OnInit {
 
 	public url = Global.url;
 
+	public name_day: String;
+	public day: String;
+	public month: String;
+	public year: String;
+	public hour: String;
+
 	constructor(
 		private _eventsService: EventsService,
 		private route: ActivatedRoute,
 		private router: Router
 	) { 
-		this.event = new Event('','','','','','','', null, null);
+		this.event = new Event('','','',null,'','', null, null);
 	}
 
 	ngOnInit() {
@@ -33,6 +41,8 @@ export class VieweventComponent implements OnInit {
 		this.route.params.subscribe((params: Params) => {
 			this.getEvent(params.id);
 		});
+
+		
 
 		$(".text, .text-user").hide();
 		$(".nav").hide();
@@ -112,12 +122,25 @@ export class VieweventComponent implements OnInit {
 		this._eventsService.getEvent(id_event).subscribe(
 			result => {
 				this.event = result;
+
+				this.event.date_event = new Date(this.event.date_event);
+				moment.locale('es');
+				this.name_day = this.capitalizeFirstLetter(moment(this.event.date_event).format('dddd'));
+				this.day = moment(this.event.date_event).format('DD');
+				this.month = this.capitalizeFirstLetter(moment(this.event.date_event).format('MMMM'));
+				this.year = moment(this.event.date_event).format('YYYY');
+				this.hour = moment(this.event.date_event).format('LT');
+				
 				console.log(this.event);
 			},
 			error => {
 				console.log(<any>error);
 			}
 		);
+	}
+
+	capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
 }
