@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<base href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/">
 <div class="container-fluid">
 	<div class="menu hidden-sm hidden-md hidden-lg">	
 		<span id="menu-events">&#9776;</span>
@@ -29,21 +30,16 @@
 </div>
 <div class="container-fluid info-evento" id="container-info-evento">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-2 event">
-			<div id="carousel" class="carousel slide" data-ride="carousel">
-			  	<div class="carousel-inner" role="listbox">
-					  <!-- Imagen del carrusel -->
-			    	<div class="item ">
-			    	  	<img class="img-event" src="../../assets/web/evento.jpg" alt="...">
-					</div>
-					<!--Imagen del carrusel activa-->
-			    	<div class="item active">
-			      		<img class="img-event" src="../../assets/web/ocio.jpg" alt="...">
-			    	</div>
-		 	 	</div>
-		 	</div>
+		<div class="col-md-6 col-md-offset-2 col-sm-8 event">
+			<div id="slider">
+				<figure>
+					<img class="img-event" src="../../assets/web/evento.jpg" alt="...">
+					<img class="img-event" src="../../assets/web/ocio.jpg" alt="...">
+					<img class="img-event" src="../../assets/web/fondo.jpg" alt="...">
+				</figure>
+			</div>
 		</div>
-		<div class="hidden-xs col-md-2 date event">
+		<div class="hidden-xs col-md-2 col-sm-4 date event">
 			<p class="day" id="day">{{name_day}}</p>
 			<p class="day-number" id="day-number">{{day}}</p>
 			<p class="month" id="month">{{month}}</p>
@@ -70,8 +66,7 @@
 					<p id="direccion">{{event.address_event}}</p>
 				</div>
 				<div class="hidden-sm hidden-md hidden-lg col-md-12 date-xs">
-					<span id="date">30/10/2018</span>
-						<span id="time">15:30 hrs</span>
+					<span id="date">{{full_date}}hrs</span>
 				</div>
 				<div class="col-md-7 col-md-offset-1">
 					<h3>Asistentes:</h3>

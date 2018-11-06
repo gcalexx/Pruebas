@@ -29,6 +29,7 @@ export class VieweventComponent implements OnInit {
 	public month: String;
 	public year: String;
 	public hour: String;
+	public full_date: String;
 
 	constructor(
 		private _eventsService: EventsService,
@@ -135,12 +136,13 @@ export class VieweventComponent implements OnInit {
 				this.month = this.capitalizeFirstLetter(moment(this.event.date_event).format('MMMM'));
 				this.year = moment(this.event.date_event).format('YYYY');
 				this.hour = moment(this.event.date_event).format('LT');
+				this.full_date = moment(this.event.date_event).format('LLL');
 				
-				//console.log(result._id);
+				console.log(result._id);
 
 				this._usersServie.getLimitedUser(result._id).subscribe(
 					userResult => {
-						//console.log(userResult);
+						console.log(userResult);
 						this.creator = userResult;
 					},
 					userError => {

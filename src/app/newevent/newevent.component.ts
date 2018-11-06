@@ -104,6 +104,7 @@ export class NeweventComponent implements OnInit {
     this._eventsService.addEvent(this.event, this.filesToUpload).subscribe(
       result => {
         if (result != 'Sesion no iniciada') {
+          console.log(result);
         } else {
           this.router.navigateByUrl('/');
         }
