@@ -112,6 +112,7 @@ export class VieweventsComponent implements OnInit {
         }
       },
       error => {
+        this.router.navigateByUrl('/');
         console.log(<any>error);
       }
     );

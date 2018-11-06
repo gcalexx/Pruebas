@@ -109,6 +109,7 @@ export class NeweventComponent implements OnInit {
         }
       },
       error => {
+        this.router.navigateByUrl('/');
         console.log(<any>error);
       }
     );

@@ -91,6 +91,7 @@ export class HomeComponent implements OnInit {
         console.log(result);
       },
       error => {
+        this.router.navigateByUrl('/');
         console.log(<any>error);
       }
     );
@@ -104,6 +105,7 @@ export class HomeComponent implements OnInit {
         console.log(result);
       },
       error => {
+        this.router.navigateByUrl('/');
         console.log(<any>error);
       }
     );

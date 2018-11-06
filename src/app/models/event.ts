@@ -7,11 +7,11 @@ export class Event {
         public address_event: String,
         public description: String,
         public images: [{
-            id_: String,
+            _id: String,
             image: String
         }], 
         public assistans: [{
-            id_: String
+            _id_: String
         }]
     ){}
 }

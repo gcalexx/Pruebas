@@ -2,24 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { EventsService } from '../services/events.service';
+import { UsersService } from '../services/users.service';
 import { Event } from '../models/event';
+import { EventUser } from '../models/eventUser';
 
 import { Global } from '../services/global';
 
 import * as $ from 'jquery';
 import * as moment from 'moment';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
 	selector: 'app-viewevent',
 	templateUrl: './viewevent.component.html',
 	styleUrls: ['./viewevent.component.css'],
-  providers: [EventsService]
+  providers: [EventsService, UsersService]
 })
 export class VieweventComponent implements OnInit {
 
 	public event: Event;
-
+	public creator: EventUser;
+	public id_event: String;
 	public url = Global.url;
 
 	public name_day: String;
@@ -30,15 +32,18 @@ export class VieweventComponent implements OnInit {
 
 	constructor(
 		private _eventsService: EventsService,
+		private _usersServie: UsersService,
 		private route: ActivatedRoute,
 		private router: Router
 	) { 
 		this.event = new Event('','','',null,'','', null, null);
+		this.creator = new EventUser('','');
 	}
 
 	ngOnInit() {
 
 		this.route.params.subscribe((params: Params) => {
+			this.id_event = params.id;
 			this.getEvent(params.id);
 		});
 
@@ -131,9 +136,21 @@ export class VieweventComponent implements OnInit {
 				this.year = moment(this.event.date_event).format('YYYY');
 				this.hour = moment(this.event.date_event).format('LT');
 				
-				console.log(this.event);
+				//console.log(result._id);
+
+				this._usersServie.getLimitedUser(result._id).subscribe(
+					userResult => {
+						//console.log(userResult);
+						this.creator = userResult;
+					},
+					userError => {
+						this.router.navigateByUrl('/');
+						console.log(<any>userError);
+					}
+				)
 			},
 			error => {
+				this.router.navigateByUrl('/');
 				console.log(<any>error);
 			}
 		);
@@ -141,6 +158,21 @@ export class VieweventComponent implements OnInit {
 
 	capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	public assistant(action){
+		var assitant = {
+			id_event: this.id_event,
+			action: action
+		}
+		this._eventsService.addAssistans(assitant).subscribe(
+			result =>{
+				console.log(result);
+			},
+			error => {
+				console.log(<any>error);
+			}
+		)
 	}
 
 }

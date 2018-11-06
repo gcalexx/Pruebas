@@ -49,4 +49,8 @@ export class EventsService {
 
     return this._http.post(this.url + "/api/events", formData, { withCredentials: true });
   }
+
+  addAssistans(assistan): Observable<any> {
+    return this._http.post(this.url + "/api/events/assistans", assistan, {withCredentials: true});
+  }
 }

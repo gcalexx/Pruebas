@@ -26,10 +26,16 @@ export class UsersService {
   }
 
   checkSession(): Observable<any> {
-    return this._http.get(this.url + "/api/users/session", { withCredentials: true })
+    return this._http.get(this.url + "/api/users/session", { withCredentials: true });
   }
 
   logout(): Observable<any> {
-    return this._http.get(this.url + "/api/users/session/logout", {withCredentials: true})
+    return this._http.get(this.url + "/api/users/session/logout", {withCredentials: true});
   }
+
+  getLimitedUser(id_event): Observable<any>{
+    return this._http.get(this.url + "/api/users/user?id_event=" + id_event, {withCredentials: true});
+  }
+
+
 }
