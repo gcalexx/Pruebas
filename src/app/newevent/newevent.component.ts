@@ -22,7 +22,7 @@ export class NeweventComponent implements OnInit {
     private _eventsService: EventsService,
     private router: Router
   ) {
-    this.event = new Event('', '', '', null, '', '', null, null);
+    this.event = new Event('', '', '', null, '', '',null, null, null);
     this.date_string = "";
     this.hour_string = "";
   }

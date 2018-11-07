@@ -6,6 +6,7 @@ export class Event {
         public date_event: Date,
         public address_event: String,
         public description: String,
+        public creator: Boolean,
         public images: [{
             _id: String,
             image: String

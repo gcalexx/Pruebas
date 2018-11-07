@@ -37,7 +37,7 @@ export class VieweventComponent implements OnInit {
 		private route: ActivatedRoute,
 		private router: Router
 	) { 
-		this.event = new Event('','','',null,'','', null, null);
+		this.event = new Event('','','',null,'','',null, null, null);
 		this.creator = new EventUser('','');
 	}
 
@@ -138,7 +138,7 @@ export class VieweventComponent implements OnInit {
 				this.hour = moment(this.event.date_event).format('LT');
 				this.full_date = moment(this.event.date_event).format('LLL');
 				
-				console.log(result._id);
+				console.log(result.creator );
 
 				this._usersServie.getLimitedUser(result._id).subscribe(
 					userResult => {
